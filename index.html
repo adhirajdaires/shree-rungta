@@ -3,58 +3,192 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Shree Rungta — Apka Apna Mart</title>
 
-<!-- 👑 ULTRA LUXURY FONTS -->
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<!-- LUXURY FONTS -->
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
-:root{--gold:#D4AF37;--black:#0a0a0a;--card:#161616}
-*{margin:0;padding:0;box-sizing:border-box}
+:root{
+--gold:#D4AF37;
+--bg:#0a0a0a;
+}
 
-body{font-family:'Poppins',sans-serif;background:var(--black);color:#fff}
+body{
+margin:0;
+background:var(--bg);
+color:#fff;
+font-family:Poppins,sans-serif;
+}
 
 /* HEADER */
-header{position:sticky;top:0;background:#000;padding:14px;text-align:center;border-bottom:2px solid var(--gold);z-index:100}
-header h1{font-family:'Cinzel',serif;font-size:28px;letter-spacing:2px;color:var(--gold);text-transform:uppercase;text-shadow:0 0 12px rgba(212,175,55,.5)}
-.tag{font-family:'Playfair Display',serif;font-style:italic;color:#d6c27a;font-size:14px}
 
-/* SEARCH */
-.search{padding:12px;background:#000}
-.search input{width:100%;padding:12px;border-radius:30px;border:none;background:#222;color:#fff;font-size:16px}
+header{
+text-align:center;
+padding:18px;
+border-bottom:1px solid #222;
+background:#000;
+}
+
+header h1{
+font-family:Cinzel,serif;
+color:var(--gold);
+letter-spacing:2px;
+margin:0;
+}
+
+.tag{
+font-family:"Playfair Display",serif;
+color:#d6c27a;
+font-style:italic;
+}
 
 /* CATEGORIES */
-.filters{display:flex;gap:8px;overflow-x:auto;padding:10px;background:#000}
-.filters button{background:#1c1c1c;color:#fff;border:none;padding:8px 14px;border-radius:20px;cursor:pointer;white-space:nowrap;font-weight:500;letter-spacing:.5px;text-transform:uppercase}
-.filters button.active,.filters button:hover{background:var(--gold);color:#000}
 
-/* PRODUCTS */
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:14px;padding:14px}
-.card{background:var(--card);border-radius:14px;overflow:hidden;transition:.25s;box-shadow:0 4px 14px rgba(0,0,0,.6)}
-.card:hover{transform:translateY(-5px);box-shadow:0 8px 22px rgba(212,175,55,.25)}
-.card img{width:100%;height:170px;object-fit:cover}
-.info{padding:10px}
-.card h3{font-family:'Playfair Display',serif;font-weight:600;font-size:17px}
-.price{color:var(--gold);margin:6px 0;font-weight:600}
-.card button{width:100%;background:var(--gold);border:none;padding:9px;border-radius:6px;font-weight:600;cursor:pointer;text-transform:uppercase}
+.categories{
+display:flex;
+gap:16px;
+padding:16px;
+overflow-x:auto;
+}
 
-/* CART BUTTON */
-.cart-btn{position:fixed;bottom:20px;right:20px;background:var(--gold);color:#000;border:none;padding:16px;border-radius:50%;font-size:22px;cursor:pointer;z-index:200}
-.cart-count{position:absolute;top:-6px;right:-6px;background:#ff3b3b;border-radius:50%;padding:3px 7px;font-size:12px}
+.cat{
+min-width:90px;
+text-align:center;
+cursor:pointer;
+}
+
+.cat img{
+width:70px;
+height:70px;
+border-radius:50%;
+object-fit:cover;
+border:2px solid var(--gold);
+}
+
+.cat span{
+display:block;
+margin-top:6px;
+font-size:13px;
+}
+
+/* PRODUCTS GRID */
+
+.products{
+display:grid;
+grid-template-columns:repeat(auto-fill,minmax(180px,1fr));
+gap:20px;
+padding:20px;
+}
+
+.card{
+background:#111;
+border-radius:16px;
+overflow:hidden;
+box-shadow:0 0 15px rgba(0,0,0,.6);
+transition:.3s;
+cursor:pointer;
+}
+
+.card:hover{
+transform:translateY(-6px);
+box-shadow:0 0 25px rgba(212,175,55,.4);
+}
+
+.card img{
+width:100%;
+height:170px;
+object-fit:cover;
+}
+
+.card h3{
+font-family:"Playfair Display",serif;
+padding:8px 12px 0;
+margin:0;
+}
+
+.price{
+color:var(--gold);
+padding:0 12px 12px;
+font-weight:600;
+}
 
 /* MODAL */
-.modal{position:fixed;inset:0;background:rgba(0,0,0,.95);display:none;z-index:300;overflow:auto}
-.modal-content{background:#111;margin:40px auto;padding:20px;width:95%;max-width:520px;border-radius:12px}
-.cart-item{display:flex;justify-content:space-between;margin-bottom:10px;border-bottom:1px solid #333;padding-bottom:8px}
-.qty button{background:#333;border:none;color:#fff;padding:4px 8px;margin:0 2px}
 
-/* WHATSAPP */
-.whatsapp{position:fixed;left:18px;bottom:20px;background:#25D366;color:#fff;padding:12px 16px;border-radius:30px;text-decoration:none;font-weight:600}
+.modal{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.9);
+overflow:auto;
+padding:20px;
+}
 
-/* FOOTER */
-footer{background:#000;padding:20px;text-align:center;color:#ccc;margin-top:20px}
-footer h3{color:var(--gold);margin-bottom:8px;font-family:'Cinzel',serif}
+.modal-content{
+max-width:800px;
+margin:auto;
+background:#111;
+border-radius:16px;
+padding:20px;
+}
+
+.modal img{
+width:100%;
+border-radius:12px;
+}
+
+.recommend{
+margin-top:20px;
+}
+
+.recommend h3{
+font-family:"Playfair Display",serif;
+}
+
+.recommend-grid{
+display:grid;
+grid-template-columns:repeat(auto-fill,minmax(140px,1fr));
+gap:12px;
+}
+
+/* CART */
+
+.cart{
+position:fixed;
+bottom:0;
+right:0;
+background:#000;
+padding:12px;
+border-top-left-radius:16px;
+max-height:60vh;
+overflow:auto;
+}
+
+.cart-item{
+display:flex;
+gap:10px;
+margin-bottom:8px;
+}
+
+.cart-item img{
+width:45px;
+height:45px;
+object-fit:cover;
+border-radius:6px;
+}
+
+button{
+background:var(--gold);
+border:none;
+padding:8px 12px;
+border-radius:6px;
+font-weight:600;
+cursor:pointer;
+}
+
 </style>
 </head>
 
@@ -65,159 +199,209 @@ footer h3{color:var(--gold);margin-bottom:8px;font-family:'Cinzel',serif}
 <div class="tag">Apka Apna Mart</div>
 </header>
 
-<div class="search">
-<input id="search" placeholder="Search products...">
+<!-- CATEGORIES -->
+
+<div class="categories" id="categories"></div>
+
+<!-- PRODUCTS -->
+
+<div class="products" id="products"></div>
+
+<!-- PRODUCT MODAL -->
+
+<div class="modal" id="modal">
+<div class="modal-content" id="modalContent"></div>
 </div>
 
-<div class="filters" id="filters"></div>
-<div class="grid" id="grid"></div>
+<!-- CART -->
 
-<button class="cart-btn" onclick="openCart()">🛒 <span id="count" class="cart-count">0</span></button>
-
-<a class="whatsapp" href="https://wa.me/917909061382" target="_blank">Chat on WhatsApp</a>
-
-<div class="modal" id="cartModal">
-<div class="modal-content">
-<h2>Your Cart</h2>
+<div class="cart">
+<h3>Cart 🛒</h3>
 <div id="cartItems"></div>
-<h3 id="total"></h3>
-<form action="https://formspree.io/f/mbdzkzbv" method="POST" onsubmit="prepareOrder()">
-<input required name="Name" placeholder="Your Name" style="width:100%;margin:6px 0;padding:8px">
-<input required name="Phone" placeholder="Phone Number" style="width:100%;margin:6px 0;padding:8px">
-<textarea required name="Address" placeholder="Delivery Address" style="width:100%;margin:6px 0;padding:8px"></textarea>
-<input type="hidden" name="Order" id="orderField">
-<button style="background:var(--gold);padding:10px;width:100%;border:none;margin-top:8px">Place Order</button>
-</form>
-<button onclick="closeCart()" style="margin-top:10px;width:100%">Close</button>
 </div>
-</div>
-
-<footer>
-<h3>Shree Rungta — Apka Apna Mart</h3>
-<p>Chakuliya, Purana Bazar, Main Road</p>
-<p>📞 +91 7909061382 / +91 8092535100</p>
-<p>📧 barkharungta77@gmail.com</p>
-</footer>
 
 <script>
-// ===== ALL 49 PRODUCTS =====
+
 const products = [
-{n:"Couple Showpiece",p:1080,c:"Home Decor",i:"https://i.ibb.co/YTkSwsz6/17734751638875328563538152127249.jpg"},
-{n:"Scratch Art book",p:90,c:"Stationery & Kids' Supplies",i:"https://i.ibb.co/4ZYQNjFQ/IMG-20260314-144746-609.jpg"},
-{n:"Spring Notebook (Boys)",p:120,c:"Stationery & Kids' Supplies",i:"https://i.ibb.co/Cp8QVSNk/IMG-20260314-144722-974.jpg"},
-{n:"Spring Notebook (Girls)",p:120,c:"Stationery & Kids' Supplies",i:"https://i.ibb.co/wnv9yZ9/IMG-20260314-144713-356.jpg"},
-{n:"Artificial plant vase",p:240,c:"Home Decor",i:"https://i.ibb.co/b4k2MQ0/IMG-20260314-144403-990.jpg"},
-{n:"Clock Showpiece",p:880,c:"Home Decor",i:"https://i.ibb.co/KcGv9hL4/IMG-20260314-144339-306.jpg"},
-{n:"Luggage Tag Red",p:75,c:"Travel & Luggage",i:"https://i.ibb.co/V0S8Fk2M/IMG-20260314-144244-309.jpg"},
-{n:"Luggage Tag Blue",p:70,c:"Travel & Luggage",i:"https://i.ibb.co/d4H0mmX6/IMG-20260314-144236-727.jpg"},
-{n:"QIANG REN key holder",p:170,c:"Household Essentials",i:"https://i.ibb.co/bVsJpgV/IMG-20260314-144226-473.jpg"},
-{n:"EPILATOR Hair Remover",p:150,c:"Household Essentials",i:"https://i.ibb.co/QvhnZGt0/IMG-20260314-143944-826.jpg"},
-{n:"Body Scrubber",p:50,c:"Household Essentials",i:"https://i.ibb.co/gL2P8tWm/IMG-20260314-143920-000.jpg"},
-{n:"Adventure Perfume",p:350,c:"Fashion & Beauty",i:"https://i.ibb.co/B52bG6Wc/IMG-20260314-143857-957.jpg"},
-{n:"Bellavita Deo",p:200,c:"Fashion & Beauty",i:"https://i.ibb.co/mr4WCzm7/IMG-20260314-143759-103.jpg"},
-{n:"Cool Water Spray",p:170,c:"Fashion & Beauty",i:"https://i.ibb.co/S4jXJG82/IMG-20260314-143746-199.jpg"},
-{n:"Glue Gun",p:165,c:"Household Essentials",i:"https://i.ibb.co/rK4k9m76/IMG-20260314-143719-425.jpg"},
-{n:"Magnet Set",p:70,c:"Toys & Outdoor Play",i:"https://i.ibb.co/RT4tRDft/IMG-20260314-143658-115.jpg"},
-{n:"Science kit",p:90,c:"Toys & Outdoor Play",i:"https://i.ibb.co/zhj9zMkJ/IMG-20260314-143651-515.jpg"},
-{n:"Water colour",p:120,c:"Stationery & Kids' Supplies",i:"https://i.ibb.co/5hJTKMjd/IMG-20260314-143635-086.jpg"},
-{n:"Permanent Marker",p:180,c:"Stationery & Kids' Supplies",i:"https://i.ibb.co/Z6xYJ2M4/IMG-20260314-143612-423.jpg"},
-{n:"Drift car",p:250,c:"Toys & Outdoor Play",i:"https://i.ibb.co/7Nbqg82z/IMG-20260314-143541-455.jpg"},
-{n:"Pencil Pouch",p:250,c:"Stationery & Kids' Supplies",i:"https://i.ibb.co/4R7RVTN7/IMG-20260314-143511-628.jpg"},
-{n:"Pencil case",p:250,c:"Stationery & Kids' Supplies",i:"https://i.ibb.co/MDF0FKSQ/IMG-20260314-143458-098.jpg"},
-{n:"Magnetic Dart Game",p:350,c:"Toys & Outdoor Play",i:"https://i.ibb.co/3m65xGrD/IMG-20260314-143444-803.jpg"},
-{n:"Remote control Car",p:520,c:"Toys & Outdoor Play",i:"https://i.ibb.co/gLxN6s7t/IMG-20260314-143426-581.jpg"},
-{n:"Cricket Set",p:700,c:"Toys & Outdoor Play",i:"https://i.ibb.co/DHzh8QYb/IMG-20260314-143412-740.jpg"},
-{n:"Remote control Robot",p:650,c:"Toys & Outdoor Play",i:"https://i.ibb.co/0j70W0S6/IMG-20260314-143401-026.jpg"},
-{n:"Travel Bag",p:250,c:"Travel & Luggage",i:"https://i.ibb.co/RT2WSwbZ/IMG-20260314-143322-285.jpg"},
-{n:"Metal water Bottle",p:250,c:"Stationery & Kids' Supplies",i:"https://i.ibb.co/C3Q9t5sW/IMG-20260314-143130-671.jpg"},
-{n:"Servewell Bottle",p:350,c:"Stationery & Kids' Supplies",i:"https://i.ibb.co/qMs0GGd7/IMG-20260314-143124-230.jpg"},
-{n:"Perfume Roll On",p:190,c:"Fashion & Beauty",i:"https://i.ibb.co/PvPNCw0V/IMG-20260314-143009-838.jpg"},
-{n:"Versus Diamond Set",p:550,c:"Fashion & Beauty",i:"https://i.ibb.co/Rpr6H2yj/IMG-20260314-142809-969.jpg"},
-{n:"Milk & Honey Cream",p:370,c:"Fashion & Beauty",i:"https://i.ibb.co/5hRXBPLp/IMG-20260314-143005-173.jpg"},
-{n:"Haldi Powder",p:250,c:"Indian Ethnic Foods",i:"https://i.ibb.co/SwjH13Q9/IMG-20260314-144640-494.jpg"},
-{n:"Aalu Papad",p:100,c:"Indian Ethnic Foods",i:"https://i.ibb.co/gMYqQpqP/IMG-20260314-144627-353.jpg"},
-{n:"Ice cream Supari",p:130,c:"Mouth Fresheners",i:"https://i.ibb.co/bRmT2yMM/IMG-20260314-144613-907.jpg"},
-{n:"Sweet Mango Pickle",p:75,c:"Indian Ethnic Foods",i:"https://i.ibb.co/Q3T6jd6g/IMG-20260314-144530-356.jpg"},
-{n:"Kariya Pickle",p:150,c:"Indian Ethnic Foods",i:"https://i.ibb.co/cc3Cy6pk/IMG-20260314-144521-738.jpg"},
-{n:"Tart Mango Pickle",p:75,c:"Indian Ethnic Foods",i:"https://i.ibb.co/v4KW9TLd/IMG-20260314-144459-330.jpg"},
-{n:"Power Pocket",p:65,c:"Household Essentials",i:"https://i.ibb.co/pjFGpf0Z/IMG-20260314-144014-799.jpg"},
-{n:"Ferrari Deo",p:200,c:"Fashion & Beauty",i:"https://i.ibb.co/G4ZgCDD9/IMG-20260314-143846-878.jpg"},
-{n:"Bellavita OUD",p:330,c:"Fashion & Beauty",i:"https://i.ibb.co/bjSRP29T/IMG-20260314-143821-207.jpg"},
-{n:"Skai Aquatic Deo",p:330,c:"Fashion & Beauty",i:"https://i.ibb.co/1JrWSWVR/IMG-20260314-143812-761.jpg"},
-{n:"Gucci Flora",p:175,c:"Fashion & Beauty",i:"https://i.ibb.co/hJND4kPq/IMG-20260314-143739-956.jpg"},
-{n:"Ajwain Mouth Freshner",p:120,c:"Mouth Fresheners",i:"https://i.ibb.co/MyRssyPV/IMG-20260314-144606-432.jpg"},
-{n:"Bombay Mix",p:100,c:"Mouth Fresheners",i:"https://i.ibb.co/MxrsJZh4/IMG-20260314-144554-655.jpg"},
-{n:"Anardana Goli",p:100,c:"Mouth Fresheners",i:"https://i.ibb.co/ymg6b6Hc/IMG-20260314-144547-998.jpg"},
-{n:"Roasted Mukhwas",p:130,c:"Mouth Fresheners",i:"https://i.ibb.co/VWTnYcv8/IMG-20260314-144543-257.jpg"},
-{n:"Suitcase Small",p:4800,c:"Travel & Luggage",i:"https://i.ibb.co/ynfqbgjr/IMG-20260314-173255-635.jpg"},
-{n:"Suitcase Large",p:4200,c:"Travel & Luggage",i:"https://i.ibb.co/1tVLn8fm/IMG-20260314-173223-722.jpg"}
+
+/* TRAVEL */
+{ id:1, name:"Premium Travel Backpack", price:1299, cat:"Travel",
+img:"https://images.unsplash.com/photo-1520975916090-3105956dac38" },
+
+{ id:2, name:"Hard Shell Trolley Bag", price:2499, cat:"Travel",
+img:"https://images.unsplash.com/photo-1542291026-7eec264c27ff" },
+
+{ id:3, name:"Passport Organizer", price:399, cat:"Travel",
+img:"https://images.unsplash.com/photo-1502920917128-1aa500764b8a" },
+
+/* HOME DECOR */
+{ id:4, name:"Luxury Wall Clock", price:699, cat:"Home Decor",
+img:"https://images.unsplash.com/photo-1505691938895-1758d7feb511" },
+
+{ id:5, name:"LED Decorative Lamp", price:499, cat:"Home Decor",
+img:"https://images.unsplash.com/photo-1507473885765-e6ed057f782c" },
+
+{ id:6, name:"Artificial Flower Vase", price:349, cat:"Home Decor",
+img:"https://images.unsplash.com/photo-1493666438817-866a91353ca9" },
+
+/* BEAUTY */
+{ id:7, name:"Face Cream", price:249, cat:"Beauty",
+img:"https://images.unsplash.com/photo-1556228720-195a672e8a03" },
+
+{ id:8, name:"Vitamin C Serum", price:399, cat:"Beauty",
+img:"https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd" },
+
+{ id:9, name:"Perfume Spray", price:599, cat:"Beauty",
+img:"https://images.unsplash.com/photo-1594035910387-fea47794261f" },
+
+/* TOYS */
+{ id:10, name:"Remote Control Car", price:799, cat:"Toys",
+img:"https://images.unsplash.com/photo-1581235720704-06d3acfcb36f" },
+
+{ id:11, name:"Teddy Bear", price:499, cat:"Toys",
+img:"https://images.unsplash.com/photo-1517841905240-472988babdf9" },
+
+{ id:12, name:"Building Blocks Set", price:699, cat:"Toys",
+img:"https://images.unsplash.com/photo-1587654780291-39c9404d746b" },
+
+/* STATIONERY */
+{ id:13, name:"Notebook Pack", price:199, cat:"Stationery",
+img:"https://images.unsplash.com/photo-1519682337058-a94d519337bc" },
+
+{ id:14, name:"Premium Pen Set", price:149, cat:"Stationery",
+img:"https://images.unsplash.com/photo-1583484963886-cfe2bff2945f" },
+
+{ id:15, name:"School Bag", price:799, cat:"Stationery",
+img:"https://images.unsplash.com/photo-1588072432836-e10032774350" },
+
+/* FOODS */
+{ id:16, name:"Chocolate Gift Pack", price:299, cat:"Foods",
+img:"https://images.unsplash.com/photo-1511389026070-a14ae610a1be" },
+
+{ id:17, name:"Dry Fruits Box", price:499, cat:"Foods",
+img:"https://images.unsplash.com/photo-1604908176997-43132d8c3e5b" },
+
+{ id:18, name:"Instant Noodles Pack", price:99, cat:"Foods",
+img:"https://images.unsplash.com/photo-1604908554021-3a0d6b5a16c6" },
+
+/* MOUTH FRESHENER */
+{ id:19, name:"Elaichi Pack", price:79, cat:"Mouth Fresheners",
+img:"https://images.unsplash.com/photo-1587049352846-4a222e784d38" },
+
+{ id:20, name:"Mint Tablets", price:59, cat:"Mouth Fresheners",
+img:"https://images.unsplash.com/photo-1590080877777-7a0c43a3e1f7" },
+
+/* FASHION */
+{ id:21, name:"Men Casual T-Shirt", price:399, cat:"Fashion",
+img:"https://images.unsplash.com/photo-1521572163474-6864f9cf17ab" },
+
+{ id:22, name:"Women Handbag", price:699, cat:"Fashion",
+img:"https://images.unsplash.com/photo-1584917865442-de89df76afd3" },
+
+{ id:23, name:"Stylish Sunglasses", price:249, cat:"Fashion",
+img:"https://images.unsplash.com/photo-1511499767150-a48a237f0083" },
+
+/* ELECTRONICS */
+{ id:24, name:"Bluetooth Earbuds", price:899, cat:"Electronics",
+img:"https://images.unsplash.com/photo-1585386959984-a41552231658" },
+
+{ id:25, name:"Power Bank", price:699, cat:"Electronics",
+img:"https://images.unsplash.com/photo-1580910051074-3eb694886505" },
+
+{ id:26, name:"LED Study Lamp", price:499, cat:"Electronics",
+img:"https://images.unsplash.com/photo-1519710164239-da123dc03ef4" },
+
+/* UTILITY */
+{ id:27, name:"Steel Water Bottle", price:299, cat:"Utility",
+img:"https://images.unsplash.com/photo-1600180758890-6c7b6c6d5b18" },
+
+{ id:28, name:"Lunch Box", price:349, cat:"Utility",
+img:"https://images.unsplash.com/photo-1604908176997-43132d8c3e5b" },
+
+{ id:29, name:"Rechargeable Torch", price:399, cat:"Utility",
+img:"https://images.unsplash.com/photo-1505740420928-5e560c06d30e" }
+
 ];
 
-// ===== CATEGORY SYSTEM =====
-const categories=["All",...new Set(products.map(p=>p.c))];
-const filters=document.getElementById("filters");
+</script>
 
+const categories = [...new Set(products.map(p=>p.cat))];
+
+const catContainer = document.getElementById("categories");
 categories.forEach(c=>{
-const b=document.createElement("button");
-b.textContent=c;
-b.onclick=()=>{render(c);document.querySelectorAll(".filters button").forEach(x=>x.classList.remove("active"));b.classList.add("active")};
-filters.appendChild(b);
+const hero = products.find(p=>p.cat===c).img;
+catContainer.innerHTML += `
+<div class="cat" onclick="filterCat('${c}')">
+<img src="${hero}">
+<span>${c}</span>
+</div>`;
 });
 
-let cart=JSON.parse(localStorage.getItem("cart")||"{}");
-
-function render(cat="All"){
-const grid=document.getElementById("grid");
-const term=document.getElementById("search").value.toLowerCase();
-grid.innerHTML="";
-
-products.filter(p=>
-(cat==="All"||p.c===cat)&&
-p.n.toLowerCase().includes(term)
-).forEach((p,i)=>{
-grid.innerHTML+=`
-<div class="card">
-<img src="${p.i}">
-<div class="info">
-<h3>${p.n}</h3>
-<div class="price">₹${p.p}</div>
-<button onclick="add(${i})">Add</button>
-</div>
+function showProducts(list){
+const container = document.getElementById("products");
+container.innerHTML="";
+list.forEach(p=>{
+container.innerHTML+=`
+<div class="card" onclick="openProduct(${p.id})">
+<img src="${p.img}">
+<h3>${p.name}</h3>
+<div class="price">₹${p.price}</div>
 </div>`;
 });
 }
 
-document.getElementById("search").oninput=()=>render();
+showProducts(products);
 
-function add(i){cart[i]=(cart[i]||0)+1;save()}
-function save(){localStorage.setItem("cart",JSON.stringify(cart));count.textContent=Object.values(cart).reduce((a,b)=>a+b,0)}
-
-function openCart(){
-const list=document.getElementById("cartItems");
-list.innerHTML="";let total=0;
-for(let i in cart){
-const p=products[i],q=cart[i];
-total+=p.p*q;
-list.innerHTML+=`<div class="cart-item"><div>${p.n}<br>₹${p.p} × ${q}</div><div class="qty"><button onclick="chg(${i},-1)">−</button><button onclick="chg(${i},1)">+</button><button onclick="del(${i})">✕</button></div></div>`;
-}
-totalEl.textContent="Total: ₹"+total;
-cartModal.style.display="block";
+function filterCat(c){
+showProducts(products.filter(p=>p.cat===c));
 }
 
-function closeCart(){cartModal.style.display="none"}
-function chg(i,d){cart[i]+=d;if(cart[i]<=0)delete cart[i];save();openCart()}
-function del(i){delete cart[i];save();openCart()}
+function openProduct(id){
+const p = products.find(x=>x.id===id);
 
-function prepareOrder(){
-let txt="",total=0;
-for(let i in cart){const p=products[i],q=cart[i];txt+=`${p.n} × ${q} = ₹${p.p*q}\n`;total+=p.p*q;}
-txt+="Total: ₹"+total;
-orderField.value=txt;
-localStorage.removeItem("cart");
-alert("Order placed! We will contact you on WhatsApp.");
+const related = products.filter(x=>x.cat===p.cat && x.id!==p.id);
+
+document.getElementById("modalContent").innerHTML=`
+<img src="${p.img}">
+<h2>${p.name}</h2>
+<p>₹${p.price}</p>
+<button onclick="addToCart(${p.id})">Add to Cart</button>
+
+<div class="recommend">
+<h3>You may also like</h3>
+<div class="recommend-grid">
+${related.map(r=>`
+<div class="card" onclick="openProduct(${r.id})">
+<img src="${r.img}">
+<h3>${r.name}</h3>
+<div class="price">₹${r.price}</div>
+</div>`).join("")}
+</div>
+</div>
+`;
+
+document.getElementById("modal").style.display="block";
 }
 
-render();save();
+window.onclick=e=>{
+if(e.target.id==="modal")
+document.getElementById("modal").style.display="none";
+}
+
+const cart=[];
+
+function addToCart(id){
+const p = products.find(x=>x.id===id);
+cart.push(p);
+
+const c = document.getElementById("cartItems");
+c.innerHTML += `
+<div class="cart-item">
+<img src="${p.img}">
+<div>${p.name}<br>₹${p.price}</div>
+</div>`;
+}
+
 </script>
 
 </body>
