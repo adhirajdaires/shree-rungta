@@ -5,201 +5,46 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Shree Rungta — Apka Apna Mart</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
-:root{
---gold:#D4AF37;
---bg:#0b0b0b;
-}
+:root{--gold:#D4AF37;--bg:#0b0b0b;}
+body{margin:0;background:var(--bg);color:#fff;font-family:Poppins,sans-serif}
 
-body{
-margin:0;
-background:var(--bg);
-color:#fff;
-font-family:Poppins,sans-serif;
-}
+header{background:#000;text-align:center;padding:18px;border-bottom:1px solid #222}
+header h1{margin:0;font-family:Cinzel,serif;color:var(--gold)}
+.tag{font-family:"Playfair Display",serif;color:#d6c27a;font-style:italic}
 
-/* HEADER */
-
-header{
-background:#000;
-padding:18px;
-text-align:center;
-border-bottom:1px solid #222;
-}
-
-header h1{
-font-family:Cinzel,serif;
-color:var(--gold);
-margin:0;
-}
-
-.tag{
-font-family:"Playfair Display",serif;
-color:#d6c27a;
-font-style:italic;
-}
-
-/* CATEGORY BAR */
-
-.categories{
-display:flex;
-gap:18px;
-padding:14px;
-overflow-x:auto;
-background:#000;
-}
-
-.cat{
-min-width:90px;
-text-align:center;
-cursor:pointer;
-}
-
-.cat img{
-width:70px;
-height:70px;
-border-radius:50%;
-object-fit:cover;
-border:2px solid var(--gold);
-box-shadow:0 0 12px rgba(212,175,55,.5);
-}
-
-.cat span{
-display:block;
-margin-top:6px;
-font-size:13px;
-}
-
-/* PRODUCTS GRID */
+.categories{display:flex;gap:18px;padding:14px;overflow-x:auto;background:#000}
+.cat{text-align:center;min-width:90px;cursor:pointer}
+.cat img{width:70px;height:70px;border-radius:50%;object-fit:cover;border:2px solid var(--gold)}
+.cat span{display:block;font-size:13px;margin-top:6px}
 
 .products{
 display:grid;
-grid-template-columns:repeat(auto-fill,minmax(190px,1fr));
-gap:22px;
-padding:22px;
+grid-template-columns:repeat(auto-fill,minmax(180px,1fr));
+gap:18px;padding:18px;
 }
 
-.card{
-background:#111;
-border-radius:18px;
-overflow:hidden;
-cursor:pointer;
-transition:.35s;
-box-shadow:0 0 12px rgba(0,0,0,.6);
-}
+.card{background:#111;border-radius:16px;overflow:hidden;transition:.3s;cursor:pointer}
+.card:hover{transform:translateY(-6px);box-shadow:0 0 18px rgba(212,175,55,.5)}
+.card img{width:100%;height:180px;object-fit:cover}
+.card h3{margin:8px;font-size:15px}
+.price{color:var(--gold);margin:0 8px 10px;font-weight:600}
 
-.card:hover{
-transform:translateY(-8px);
-box-shadow:0 0 25px rgba(212,175,55,.45);
-}
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.95);overflow:auto;z-index:1000;padding:20px}
+.modal-content{max-width:900px;margin:auto;background:#111;border-radius:18px;padding:20px}
+.modal img{width:100%;border-radius:12px}
 
-.card img{
-width:100%;
-height:190px;
-object-fit:cover;
-}
+.recommend-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px}
 
-.card h3{
-font-family:"Playfair Display",serif;
-padding:10px 12px 0;
-margin:0;
-font-size:16px;
-}
+.cart-btn{position:fixed;bottom:20px;right:20px;background:var(--gold);color:#000;padding:14px;border-radius:50%;font-weight:bold;cursor:pointer}
+.cart{display:none;position:fixed;right:0;bottom:0;width:300px;max-height:80vh;background:#000;padding:16px;overflow:auto;border-top-left-radius:18px}
+.cart-item{display:flex;gap:10px;margin-bottom:12px}
+.cart-item img{width:50px;height:50px;border-radius:8px;object-fit:cover}
+.total{color:var(--gold);font-weight:700;margin-top:10px}
 
-.price{
-color:var(--gold);
-padding:0 12px 12px;
-font-weight:600;
-}
-
-/* PRODUCT MODAL */
-
-.modal{
-display:none;
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,.95);
-overflow:auto;
-padding:20px;
-z-index:1000;
-}
-
-.modal-content{
-max-width:900px;
-margin:auto;
-background:#111;
-border-radius:18px;
-padding:20px;
-}
-
-.modal img{
-width:100%;
-border-radius:14px;
-}
-
-.recommend-grid{
-display:grid;
-grid-template-columns:repeat(auto-fill,minmax(150px,1fr));
-gap:14px;
-margin-top:18px;
-}
-
-/* CART */
-
-.cart{
-position:fixed;
-bottom:0;
-right:0;
-background:#000;
-padding:14px;
-border-top-left-radius:18px;
-max-height:70vh;
-overflow:auto;
-width:270px;
-box-shadow:0 0 18px rgba(0,0,0,.8);
-}
-
-.cart-item{
-display:flex;
-gap:10px;
-margin-bottom:12px;
-}
-
-.cart-item img{
-width:52px;
-height:52px;
-object-fit:cover;
-border-radius:8px;
-}
-
-button{
-background:var(--gold);
-border:none;
-padding:8px 12px;
-border-radius:8px;
-font-weight:600;
-cursor:pointer;
-margin-top:6px;
-}
-
-/* WHATSAPP */
-
-.whatsapp{
-position:fixed;
-bottom:80px;
-right:14px;
-background:#25D366;
-color:#fff;
-padding:12px 16px;
-border-radius:30px;
-text-decoration:none;
-font-weight:600;
-}
+button{background:var(--gold);border:none;padding:7px 10px;border-radius:6px;font-weight:600;cursor:pointer}
 </style>
 </head>
 
@@ -211,63 +56,96 @@ font-weight:600;
 </header>
 
 <div class="categories" id="categories"></div>
-
 <div class="products" id="products"></div>
 
 <div class="modal" id="modal">
 <div class="modal-content" id="modalContent"></div>
 </div>
 
-<div class="cart">
-<h3>Cart 🛒</h3>
-<div id="cartItems"></div>
-</div>
+<div class="cart-btn" onclick="toggleCart()">🛒 <span id="count">0</span></div>
 
-<a class="whatsapp" href="https://wa.me/message/VAJATH3WMWHWA1" target="_blank">Chat on WhatsApp</a>
+<div class="cart" id="cart">
+<h3>Cart</h3>
+<div id="cartItems"></div>
+<div class="total" id="total"></div>
+
+<form action="https://formspree.io/f/mbdzkzbv" method="POST" onsubmit="prepareOrder()">
+<input type="hidden" name="order" id="orderData">
+<input type="text" name="name" placeholder="Name" required style="width:100%;margin:5px 0">
+<input type="tel" name="phone" placeholder="Phone" required style="width:100%;margin:5px 0">
+<textarea name="address" placeholder="Address" required style="width:100%;margin:5px 0"></textarea>
+<button type="submit">Place Order</button>
+</form>
+</div>
 
 <script>
 
-/* ================= PRODUCTS ================= */
+/* ===== ALL PRODUCTS FROM YOUR PROMPT ===== */
 
-const products = [
+const products=[
 {id:1,name:"Couple Showpiece",price:1080,cat:"Home Decor",img:"https://i.ibb.co/YTkSwsz6/17734751638875328563538152127249.jpg"},
 {id:2,name:"Scratch Art Book",price:90,cat:"Stationery",img:"https://i.ibb.co/4ZYQNjFQ/IMG-20260314-144746-609.jpg"},
 {id:3,name:"Spring Notebook (Boys)",price:120,cat:"Stationery",img:"https://i.ibb.co/Cp8QVSNk/IMG-20260314-144722-974.jpg"},
 {id:4,name:"Spring Notebook (Girls)",price:120,cat:"Stationery",img:"https://i.ibb.co/wnv9yZ9/IMG-20260314-144713-356.jpg"},
 {id:5,name:"Artificial Plant Vase",price:240,cat:"Home Decor",img:"https://i.ibb.co/b4k2MQ0/IMG-20260314-144403-990.jpg"},
 {id:6,name:"Clock Showpiece",price:880,cat:"Home Decor",img:"https://i.ibb.co/KcGv9hL4/IMG-20260314-144339-306.jpg"},
-{id:7,name:"Luggage Tag Red",price:75,cat:"Travel",img:"https://i.ibb.co/V0S8Fk2M/IMG-20260314-144244-309.jpg"},
-{id:8,name:"Luggage Tag Blue",price:70,cat:"Travel",img:"https://i.ibb.co/d4H0mmX6/IMG-20260314-144236-727.jpg"},
-{id:9,name:"Key Holder",price:170,cat:"Household",img:"https://i.ibb.co/bVsJpgV/IMG-20260314-144226-473.jpg"},
-{id:10,name:"EPILATOR Hair Remover",price:150,cat:"Household",img:"https://i.ibb.co/QvhnZGt0/IMG-20260314-143944-826.jpg"},
-{id:20,name:"Drift Car",price:250,cat:"Toys",img:"https://i.ibb.co/7Nbqg82z/IMG-20260314-143541-455.jpg"},
-{id:24,name:"Remote Control Car",price:520,cat:"Toys",img:"https://i.ibb.co/gLxN6s7t/IMG-20260314-143426-581.jpg"},
-{id:33,name:"Haldi Powder",price:250,cat:"Foods",img:"https://i.ibb.co/SwjH13Q9/IMG-20260314-144640-494.jpg"},
+{id:7,name:"Luggage Tag Red",price:75,cat:"Travel & Luggage",img:"https://i.ibb.co/V0S8Fk2M/IMG-20260314-144244-309.jpg"},
+{id:8,name:"Luggage Tag Blue",price:70,cat:"Travel & Luggage",img:"https://i.ibb.co/d4H0mmX6/IMG-20260314-144236-727.jpg"},
+{id:9,name:"Key Holder",price:170,cat:"Household Essentials",img:"https://i.ibb.co/bVsJpgV/IMG-20260314-144226-473.jpg"},
+{id:10,name:"Epilator Hair Remover",price:150,cat:"Household Essentials",img:"https://i.ibb.co/QvhnZGt0/IMG-20260314-143944-826.jpg"},
+{id:11,name:"Body Scrubber",price:50,cat:"Household Essentials",img:"https://i.ibb.co/gL2P8tWm/IMG-20260314-143920-000.jpg"},
+{id:12,name:"Adventure Perfume",price:350,cat:"Fashion & Beauty",img:"https://i.ibb.co/B52bG6Wc/IMG-20260314-143857-957.jpg"},
+{id:13,name:"Bellavita Deo",price:200,cat:"Fashion & Beauty",img:"https://i.ibb.co/mr4WCzm7/IMG-20260314-143759-103.jpg"},
+{id:14,name:"Cool Water Perfume",price:170,cat:"Fashion & Beauty",img:"https://i.ibb.co/S4jXJG82/IMG-20260314-143746-199.jpg"},
+{id:15,name:"Glue Gun",price:165,cat:"Household Essentials",img:"https://i.ibb.co/rK4k9m76/IMG-20260314-143719-425.jpg"},
+{id:16,name:"Magnet Set",price:70,cat:"Toys & Outdoor",img:"https://i.ibb.co/RT4tRDft/IMG-20260314-143658-115.jpg"},
+{id:17,name:"Science Kit",price:90,cat:"Toys & Outdoor",img:"https://i.ibb.co/zhj9zMkJ/IMG-20260314-143651-515.jpg"},
+{id:18,name:"Water Colour Set",price:120,cat:"Stationery",img:"https://i.ibb.co/5hJTKMjd/IMG-20260314-143635-086.jpg"},
+{id:19,name:"Permanent Marker",price:180,cat:"Stationery",img:"https://i.ibb.co/Z6xYJ2M4/IMG-20260314-143612-423.jpg"},
+{id:20,name:"Drift Car",price:250,cat:"Toys & Outdoor",img:"https://i.ibb.co/7Nbqg82z/IMG-20260314-143541-455.jpg"},
+{id:21,name:"Pencil Pouch",price:250,cat:"Stationery",img:"https://i.ibb.co/4R7RVTN7/IMG-20260314-143511-628.jpg"},
+{id:22,name:"Pencil Case",price:250,cat:"Stationery",img:"https://i.ibb.co/MDF0FKSQ/IMG-20260314-143458-098.jpg"},
+{id:23,name:"Magnetic Dart Game",price:350,cat:"Toys & Outdoor",img:"https://i.ibb.co/3m65xGrD/IMG-20260314-143444-803.jpg"},
+{id:24,name:"Remote Control Car",price:520,cat:"Toys & Outdoor",img:"https://i.ibb.co/gLxN6s7t/IMG-20260314-143426-581.jpg"},
+{id:25,name:"Space Cricket Set",price:700,cat:"Toys & Outdoor",img:"https://i.ibb.co/DHzh8QYb/IMG-20260314-143412-740.jpg"},
+{id:26,name:"Remote Robot",price:650,cat:"Toys & Outdoor",img:"https://i.ibb.co/0j70W0S6/IMG-20260314-143401-026.jpg"},
+{id:27,name:"Happy Travel Bag",price:250,cat:"Travel & Luggage",img:"https://i.ibb.co/RT2WSwbZ/IMG-20260314-143322-285.jpg"},
+{id:28,name:"Metal Bottle",price:250,cat:"Stationery",img:"https://i.ibb.co/C3Q9t5sW/IMG-20260314-143130-671.jpg"},
+{id:29,name:"Servewell Bottle",price:350,cat:"Stationery",img:"https://i.ibb.co/qMs0GGd7/IMG-20260314-143124-230.jpg"},
+{id:30,name:"Miss Giordani Roll On",price:190,cat:"Fashion & Beauty",img:"https://i.ibb.co/PvPNCw0V/IMG-20260314-143009-838.jpg"},
+{id:31,name:"Versus Diamond Set",price:550,cat:"Fashion & Beauty",img:"https://i.ibb.co/Rpr6H2yj/IMG-20260314-142809-969.jpg"},
+{id:32,name:"Milk Honey Cream",price:370,cat:"Fashion & Beauty",img:"https://i.ibb.co/5hRXBPLp/IMG-20260314-143005-173.jpg"},
+{id:33,name:"Haldi Powder",price:250,cat:"Indian Foods",img:"https://i.ibb.co/SwjH13Q9/IMG-20260314-144640-494.jpg"},
+{id:34,name:"Aalu Papad",price:100,cat:"Indian Foods",img:"https://i.ibb.co/gMYqQpqP/IMG-20260314-144627-353.jpg"},
 {id:35,name:"Ice Cream Supari",price:130,cat:"Mouth Fresheners",img:"https://i.ibb.co/bRmT2yMM/IMG-20260314-144613-907.jpg"},
-{id:48,name:"Branded Suitcase Small",price:4800,cat:"Travel",img:"https://i.ibb.co/ynfqbgjr/IMG-20260314-173255-635.jpg"}
+{id:36,name:"Mango Sweet Pickle",price:75,cat:"Indian Foods",img:"https://i.ibb.co/Q3T6jd6g/IMG-20260314-144530-356.jpg"},
+{id:37,name:"Kariya Pickle",price:150,cat:"Indian Foods",img:"https://i.ibb.co/cc3Cy6pk/IMG-20260314-144521-738.jpg"},
+{id:38,name:"Tart Mango Pickle",price:75,cat:"Indian Foods",img:"https://i.ibb.co/v4KW9TLd/IMG-20260314-144459-330.jpg"},
+{id:39,name:"Aier Power Pocket",price:65,cat:"Household Essentials",img:"https://i.ibb.co/pjFGpf0Z/IMG-20260314-144014-799.jpg"},
+{id:40,name:"Ferrari Perfume",price:200,cat:"Fashion & Beauty",img:"https://i.ibb.co/G4ZgCDD9/IMG-20260314-143846-878.jpg"},
+{id:41,name:"Bellavita OUD Deo",price:330,cat:"Fashion & Beauty",img:"https://i.ibb.co/bjSRP29T/IMG-20260314-143821-207.jpg"},
+{id:42,name:"Bellavita Skai Deo",price:330,cat:"Fashion & Beauty",img:"https://i.ibb.co/1JrWSWVR/IMG-20260314-143812-761.jpg"},
+{id:43,name:"Gucci Flora Perfume",price:175,cat:"Fashion & Beauty",img:"https://i.ibb.co/hJND4kPq/IMG-20260314-143739-956.jpg"},
+{id:44,name:"Ajwain Mouth Freshener",price:120,cat:"Mouth Fresheners",img:"https://i.ibb.co/MyRssyPV/IMG-20260314-144606-432.jpg"},
+{id:45,name:"Bombay Mix Mukhwas",price:100,cat:"Mouth Fresheners",img:"https://i.ibb.co/MxrsJZh4/IMG-20260314-144554-655.jpg"},
+{id:46,name:"Anardana Goli",price:100,cat:"Mouth Fresheners",img:"https://i.ibb.co/ymg6b6Hc/IMG-20260314-144547-998.jpg"},
+{id:47,name:"Roasted Mukhwas",price:130,cat:"Mouth Fresheners",img:"https://i.ibb.co/VWTnYcv8/IMG-20260314-144543-257.jpg"},
+{id:48,name:"Suitcase Small",price:4800,cat:"Travel & Luggage",img:"https://i.ibb.co/ynfqbgjr/IMG-20260314-173255-635.jpg"},
+{id:49,name:"Suitcase Large",price:4200,cat:"Travel & Luggage",img:"https://i.ibb.co/1tVLn8fm/IMG-20260314-173223-722.jpg"}
 ];
 
-/* ================= CATEGORY ICONS ================= */
+/* ===== SITE LOGIC ===== */
 
 const cats=[...new Set(products.map(p=>p.cat))];
-const catDiv=document.getElementById("categories");
-
 cats.forEach(c=>{
-const hero=products.find(p=>p.cat===c).img;
-catDiv.innerHTML+=`
-<div class="cat" onclick="filterCat('${c}')">
-<img src="${hero}">
-<span>${c}</span>
-</div>`;
+const img=products.find(p=>p.cat===c).img;
+categories.innerHTML+=`<div class="cat" onclick="filterCat('${c}')"><img src="${img}"><span>${c}</span></div>`;
 });
 
-/* ================= PRODUCTS GRID ================= */
-
 function showProducts(list){
-const box=document.getElementById("products");
-box.innerHTML="";
+productsDiv.innerHTML="";
 list.forEach(p=>{
-box.innerHTML+=`
+productsDiv.innerHTML+=`
 <div class="card" onclick="openProduct(${p.id})">
 <img src="${p.img}" loading="lazy">
 <h3>${p.name}</h3>
@@ -275,58 +153,9 @@ box.innerHTML+=`
 </div>`;
 });
 }
-
 showProducts(products);
 
-function filterCat(c){
-showProducts(products.filter(p=>p.cat===c));
-}
-
-/* ================= PRODUCT PAGE ================= */
-
-function openProduct(id){
-const p=products.find(x=>x.id===id);
-const related=products.filter(x=>x.cat===p.cat && x.id!==p.id);
-
-document.getElementById("modalContent").innerHTML=`
-<img src="${p.img}">
-<h2>${p.name}</h2>
-<p>₹${p.price}</p>
-<button onclick="addToCart(${p.id})">Add to Cart</button>
-
-<h3>You may also like</h3>
-<div class="recommend-grid">
-${related.map(r=>`
-<div class="card" onclick="openProduct(${r.id})">
-<img src="${r.img}">
-<h3>${r.name}</h3>
-<div class="price">₹${r.price}</div>
-</div>`).join("")}
-</div>
-`;
-
-document.getElementById("modal").style.display="block";
-}
-
-window.onclick=e=>{
-if(e.target.id==="modal")
-document.getElementById("modal").style.display="none";
-}
-
-/* ================= CART ================= */
-
-const cart=[];
-
-function addToCart(id){
-const p=products.find(x=>x.id===id);
-cart.push(p);
-
-document.getElementById("cartItems").innerHTML+=`
-<div class="cart-item">
-<img src="${p.img}">
-<div>${p.name}<br>₹${p.price}</div>
-</div>`;
-}
+function filterCat(c){showProducts(products.filter(p=>p.cat===c));}
 
 </script>
 
